@@ -1,0 +1,163 @@
+{
+	"id": "4a2b1493-5148-4503-bad3-59a6c418f66b",
+	"name": "Microcommerce2",
+	"allTests": [],
+	"timestamp": "2019-04-03T02:22:49.530Z",
+	"collection_id": "5b3f56bb-d747-4607-a575-a90a62ac8c75",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "0",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "5b3f56bb-d747-4607-a575-a90a62ac8c75",
+		"name": "Microcommerce2",
+		"description": "",
+		"auth": null,
+		"events": null,
+		"variables": [],
+		"order": [
+			"8b9c0152-6c38-46db-aa0a-4204928510dd",
+			"3d5c9c39-335c-402a-95aa-7a28be791326",
+			"5b32e08d-544f-4444-ae55-0a9c0865c65c"
+		],
+		"folders_order": [],
+		"owner": "7100848",
+		"favorite": false,
+		"type": "collection",
+		"depth": 0
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [],
+	"results": [
+		{
+			"name": "http://localhost:9090/AdminProduits",
+			"id": "8b9c0152-6c38-46db-aa0a-4204928510dd",
+			"url": "http://localhost:9090/test/produits",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"197"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "197",
+			"totalRequestTime": "197",
+			"iterationResults": {}
+		},
+		{
+			"name": "http://localhost:9090/test/produits",
+			"id": "3d5c9c39-335c-402a-95aa-7a28be791326",
+			"url": "http://localhost:9090/test/produits",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"4"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "4",
+			"totalRequestTime": "4",
+			"iterationResults": {}
+		},
+		{
+			"name": "http://localhost:9090/Produits",
+			"id": "5b32e08d-544f-4444-ae55-0a9c0865c65c",
+			"url": "http://localhost:9090/Produits",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 406,
+				"name": "Not Acceptable",
+				"detail": {
+					"name": "Not Acceptable",
+					"detail": "The requested resource is only capable of generating content not acceptable according to the Accept headers sent in the request."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"120"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "120",
+			"totalRequestTime": "120",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 0,
+	"totalFail": 0,
+	"totalTime": 321,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "http://localhost:9090/AdminProduits",
+			"id": "8b9c0152-6c38-46db-aa0a-4204928510dd",
+			"url": "http://localhost:9090/test/produits",
+			"time": "2019-04-03T02:22:49.530Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "http://localhost:9090/test/produits",
+			"id": "3d5c9c39-335c-402a-95aa-7a28be791326",
+			"url": "http://localhost:9090/test/produits",
+			"time": "2019-04-03T02:22:49.530Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "http://localhost:9090/Produits",
+			"id": "5b32e08d-544f-4444-ae55-0a9c0865c65c",
+			"url": "http://localhost:9090/Produits",
+			"time": "2019-04-03T02:22:49.530Z",
+			"responseCode": {
+				"code": 406,
+				"name": "Not Acceptable",
+				"detail": {
+					"name": "Not Acceptable",
+					"detail": "The requested resource is only capable of generating content not acceptable according to the Accept headers sent in the request."
+				}
+			},
+			"testPassFailCounts": {}
+		}
+	],
+	"synced": false
+}
