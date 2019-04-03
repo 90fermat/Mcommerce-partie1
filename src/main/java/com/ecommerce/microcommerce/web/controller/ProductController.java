@@ -2,7 +2,12 @@ package com.ecommerce.microcommerce.web.controller;
 
 import com.ecommerce.microcommerce.dao.ProductDao;
 import com.ecommerce.microcommerce.model.Product;
+import com.ecommerce.microcommerce.web.exceptions.ProduitGratuitException;
 import com.ecommerce.microcommerce.web.exceptions.ProduitIntrouvableException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
@@ -15,8 +20,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.net.URI;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Api( description="API pour es opérations CRUD sur les produits.")
@@ -74,6 +83,9 @@ public class ProductController {
         if (productAdded == null)
             return ResponseEntity.noContent().build();
 
+        if (productAdded.getPrix() == 0)
+            throw new ProduitGratuitException("Le produit ajouté ne peut etre gratuit");
+
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
@@ -102,6 +114,27 @@ public class ProductController {
 
         return productDao.chercherUnProduitCher(400);
     }
+
+    @GetMapping(value = "/AdminProduits")
+    public String calculerMargeProduit(Product product) {
+        List<Product> tousLesProduits = productDao.findAll();
+        ObjectMapper mapper = new ObjectMapper();
+        String result;
+        try {
+            ObjectNode allMarge = mapper.createObjectNode();
+            for(Product p : tousLesProduits) {
+                allMarge.put(p.toString(), p.getPrix() - p.getPrixAchat());
+            }
+             result = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(allMarge);
+        } catch (JsonProcessingException e) {
+             e.printStackTrace();
+             result = "Error, JSON Processing Exception";
+        }
+
+        return result;
+    }
+
+
 
 
 
