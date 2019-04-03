@@ -76,14 +76,14 @@ public class ProductController {
     //ajouter un produit
     @PostMapping(value = "/Produits")
 
-    public ResponseEntity<Void> ajouterProduit(@Valid @RequestBody Product product) {
+    public ResponseEntity<Void> ajouterProduit(@RequestBody Product product) {
 
         Product productAdded =  productDao.save(product);
 
         if (productAdded == null)
             return ResponseEntity.noContent().build();
 
-        if (productAdded.getPrix() == 0)
+        if(productAdded.getPrix() == 0)
             throw new ProduitGratuitException("Le produit ajouté ne peut etre gratuit");
 
         URI location = ServletUriComponentsBuilder
