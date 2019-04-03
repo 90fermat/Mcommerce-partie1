@@ -134,8 +134,11 @@ public class ProductController {
         return result;
     }
 
+    @GetMapping("test/produits")
+    public List<Product> trierProduitsParOrdreAlphabetique() {
+        return productDao.findAllByOrderByNomAsc();
 
-
+    }
 
 
 }
